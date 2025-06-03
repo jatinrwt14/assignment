@@ -2,10 +2,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
 import HomeScreen from "../../screens/Home/View/HomeScreen";
 import DetailsScreen from "../../screens/Details/View/DetailsScreen";
+import CartScreen from "../../screens/Cart/View/CartScreen";
+import { AllProductResponse } from "../../networking/ResponseDTO/AllProductResponse";
 
 export type RootStackParamList = {
     HomeScreen: undefined,
-    DetailsScreen: undefined
+    DetailsScreen: {data: AllProductResponse}
+    CartScreen: undefined
 }
 
 const StackNavigator = () => {
@@ -23,6 +26,14 @@ const StackNavigator = () => {
             <Stack.Screen
                 name="DetailsScreen"
                 component={DetailsScreen}
+                options={{
+                    headerShown: false
+                }}
+            />
+
+            <Stack.Screen
+                name="CartScreen"
+                component={CartScreen}
                 options={{
                     headerShown: false
                 }}
