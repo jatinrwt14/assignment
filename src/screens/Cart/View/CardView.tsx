@@ -7,10 +7,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 
 interface CardViewProps {
     item: AllProductResponse
-    onAddCart: (item: AllProductResponse) => void
+    // onAddCart: (item: AllProductResponse) => void
 }
 
-const CardView: React.FC<CardViewProps> = ({item, onAddCart}) => {
+const CardView: React.FC<CardViewProps> = ({item}) => {
     const screenWidth = Dimensions.get('window').width;
     // const cardWidth = (screenWidth / 2) - 20; 
     return(
@@ -36,12 +36,6 @@ const CardView: React.FC<CardViewProps> = ({item, onAddCart}) => {
                     <MaterialIcons name='currency-rupee' size={14} style={{ color: 'black'}} />
                     <Text>{item.price}</Text>
                 </View>
-                <TouchableOpacity onPress={() => onAddCart(item)} style={{alignItems: 'flex-end'}}>
-                    <View style={{alignItems: 'center'}}>
-                        <Ionicons name={'arrow-undo'} size={20} color={'red'} />
-                        <Text style={{color: 'red', fontWeight: 'bold'}}> Add to Cart</Text>
-                    </View>
-                </TouchableOpacity>
             </View>
         </View>
     )
